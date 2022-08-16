@@ -4,10 +4,10 @@ const Header = ({ webTitle }) => {
 
     return (
         <>
-            <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
-    <a class="navbar-brand" href="/">
-      <img src={logo} alt="" width="30" height="24" class="d-inline-block align-text-top"/>
+            <nav className="navbar navbar-light bg-light">
+            <div className="container-fluid">
+    <a className="navbar-brand" href="/">
+      <img src={logo} alt="" width="30" height="24" className="d-inline-block align-text-top"/>
       Chitter
                     </a>
              <a className="navbar-brand" href="/">Log In </a>
