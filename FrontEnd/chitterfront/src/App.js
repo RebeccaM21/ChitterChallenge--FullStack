@@ -7,19 +7,14 @@ import './Styles/App.css';
 
 
 function App() {
-  // const sendPersonToServer = async person => {
-  //   try {
-  //     const response = await axios.post(`http://localhost:4000/data`, person);
-  //     console.log(response.statusText);
-  //   } catch (e) {
-  //     console.log(e.message);
-  //   }
+  
+  const SERVERURL = 'http://localhost:4000'; 
 
     return (
       <div className="App">
         <Header />
         <ViewPage />
-        <AllMessages/>
+        <AllMessages SERVERURL={ SERVERURL } />
         <Footer />
       </div>
     );

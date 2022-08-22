@@ -1,6 +1,6 @@
 import mongoose from "mongoose";    
 
-const newChitterSchema = new mongoose.Schema(
+const entrySchema = new mongoose.Schema(
     {
         name: {
             first: { type: String, required: true },
@@ -8,9 +8,10 @@ const newChitterSchema = new mongoose.Schema(
         },
 
         message: { type: String, required: true }, 
-    }
+    }, 
+    { collection: "Chitters"}
 ); 
 
-const NewChitter = mongoose.model('NewChitter', newChitterSchema); 
+const Entry = mongoose.model('Entry', entrySchema); 
 
-export default NewChitter; 
+export default Entry; 
