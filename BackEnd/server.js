@@ -5,10 +5,6 @@ import cors from 'cors';
 
 import { entries } from './src/routes/entries.js';
 
-// dotenv.config({
-//     path: `.env.${process.env.NODE_ENV}`
-// });
-
 dotenv.config({
     path: `.env.${process.env.NODE_ENV}`
 });
@@ -22,8 +18,6 @@ const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
 const main = async () => {
-    console.log(process.env);
-    console.log(process.env.DB_URI);
     await mongoose.connect(process.env.DB_URI)
         .then(res => console.log('connected'))
         .catch(error => console.log(error));
