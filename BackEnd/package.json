@@ -6,11 +6,7 @@
   "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=test exit 1",
-<<<<<<< Updated upstream
-    "start": "NODe_ENV=development nodemon server"
-=======
     "start": "NODE_ENV=development nodemon server.js"
->>>>>>> Stashed changes
   },
   "author": "",
   "license": "ISC",
