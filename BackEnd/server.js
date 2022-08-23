@@ -1,25 +1,30 @@
 import express from 'express';
-import dotenv from 'dotenv'; 
-import mongoose from 'mongoose'; 
-import cors from 'cors'; 
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
-import { entries } from './src/routes/entries.js'; 
+import { entries } from './src/routes/entries.js';
 
-dotenv.config({ 
+// dotenv.config({
+//     path: `.env.${process.env.NODE_ENV}`
+// });
+
+dotenv.config({
     path: `.env.${process.env.NODE_ENV}`
-}); 
+});
 
-const app = express(); 
-app.use(cors()); 
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: false })); 
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-const PORT = process.env.PORT;  
+const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
-const main = async () => { 
+const main = async () => {
+    console.log(process.env);
     console.log(process.env.DB_URI);
-    await mongoose.connect(`${process.env.DB_URI}`)
+    await mongoose.connect(process.env.DB_URI)
         .then(res => console.log('connected'))
         .catch(error => console.log(error));
 }
@@ -30,7 +35,7 @@ const main = async () => {
 
 app.use(`/entries`, entries)
 
-main().catch(error => console.log(error)); 
+main().catch(error => console.log(error));
 
 const server = app.listen(PORT, HOST, () => {
     const SERVERHOST = server.address().address;
