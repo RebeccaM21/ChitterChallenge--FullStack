@@ -1,4 +1,6 @@
-// import axios from 'axios'; 
+import { useState, useEffect } from 'react'; 
+
+import axios from 'axios'; 
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import ViewPage from './Components/ViewPage';
@@ -8,13 +10,26 @@ import './Styles/App.css';
 
 function App() {
   
-  const SERVERURL = 'http://localhost:4000'; 
+    const [messages, setMessages] = useState()
+
+    const getMessages = async () => {
+        axios.get(`http://localhost:4000/entries`)
+            .then(res => { 
+                console.log(res.data); 
+                setMessages(res.data)
+            });
+    }
+    useEffect(() => {
+        getMessages()
+    }, [])
+  
+  console.log(messages); 
 
     return (
       <div className="App">
         <Header />
         <ViewPage />
-        <AllMessages SERVERURL={ SERVERURL } />
+        <AllMessages messageProp = {messages} />
         <Footer />
       </div>
     );

@@ -1,21 +1,7 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react'; 
 
-const AllMessages = ({ SERVERURL }) => {
+
+const AllMessages = ({ messageProp }) => {
     
-    const [messages, setMessages] = useState()
-
-    const getMessages = async () => {
-        axios.get(`${SERVERURL}/entries`)
-            .then(res => { 
-                setMessages(res.data)
-            });
-    }
-    useEffect(() => {
-        getMessages()
-    }, [])
-
-
     return (
         <>
         <div className="container mt-4 mb-5">
@@ -26,7 +12,7 @@ const AllMessages = ({ SERVERURL }) => {
                     <div>
                         <div className="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
                             <div className="d-flex flex-row align-items-center feed-text px-2"><img className="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45" alt="man"/>
-                                <div className="d-flex flex-column flex-wrap ml-2"><span className="font-weight-bold"> Thomas Edison </span><span className="text-black-50 time">40 minutes ago</span></div>
+                                <div className="d-flex flex-column flex-wrap ml-2"><span className="font-weight-bold"> Thomas </span><span className="text-black-50 time">40 minutes ago</span></div>
                             </div>
                             <div className="feed-icon px-2"><i className="fa fa-ellipsis-v text-black-50"></i></div>
                         </div>

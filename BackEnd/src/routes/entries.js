@@ -1,19 +1,19 @@
 import express from 'express'; 
-import Entry from '../entry.model.js'; 
+import Entry from '../models/entry.model.js'; 
 
  const router = express.Router(); 
 
 
-router.route("/").get( (req, res) => { 
-    Entry.find((error, entries) => { 
-        if (error) { 
-            console.log(error);
-        }
-        entries ? res.json(entries) : res.status(404).send('not found')
+router.route("/")
+    
+    .get((req, res) => { 
+        Entry.find({}, (error, entries) => {
+            console.log(entries);
+        error ? res.status(404).json({ error: 'Entries not found' }) : res.json(entries);
     })
  
 })
-
+      
 // router.route("/").get( (req, res) => { 
 //     Entry.find((error, entries) => { 
 //         if (error) { 
