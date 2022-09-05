@@ -1,11 +1,14 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
+import bodyParser from 'body-parser'; 
 import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
+import mongoose from 'mongoose';
 
 // have to use npm start to access the environment files 
 
 import { entries } from './src/routes/entries.js';
+import { signup } from './src/routes/signup.js';
+
 
 dotenv.config({
     path: `.env.${process.env.NODE_ENV}`
@@ -14,6 +17,9 @@ dotenv.config({
 const app = express();
 
 app.use(cors());
+app.use(bodyParser.json());
+app.use(`/entries`, entries)
+app.use(`/signup`, signup)
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 
@@ -29,12 +35,10 @@ const main = async () => {
 
 main().catch(error => console.log(error));
 
-
-app.use(`/`, entries)
-
 const server = app.listen(PORT, HOST, () => {
     const SERVERHOST = server.address().address;
     const SERVERPORT = server.address().port;
     console.log(`app listening at http://${SERVERHOST}:${SERVERPORT}`);
 });
 
+export default server; 

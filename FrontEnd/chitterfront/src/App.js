@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import axios from 'axios'; 
-import Footer from './Components/Footer';
-import Header from './Components/Header';
-import ViewPage from './Components/ViewPage';
-import AllMessages from './Components/AllMessages.jsx';
 import './Styles/App.css';
+import SignUp from './Components/Login Page/SignUp';
+import HomePage from './Components/HomePage';
 
 
 function App() {
@@ -17,12 +16,13 @@ function App() {
   // const [putError, setPutError] = useState(``);
 
     const getMessages = async () => {
-        await axios.get(`http://localhost:4000/`)
+        await axios.get(`http://localhost:4000/entries`)
             .then(res => { 
                 console.log(res.data); 
                 setMessages(res.data)
             });
     }
+  
     useEffect(() => {
         getMessages()
     }, [])
@@ -42,13 +42,15 @@ function App() {
   
   console.log(messages); 
 
-    return (
+  return (
+      <Router>
       <div className="App">
-        <Header />
-        <ViewPage />
-        <AllMessages messageProp = {messages} />
-        <Footer />
+        <Routes>
+        <Route index element={<HomePage messageProp = {messages}/>} />
+        <Route path= "/signup" element = {<SignUp/>} />
+        </Routes>
       </div>
+      </Router>
     );
   }
 

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../speechbubble.png'; 
 
 const Header = ({ webTitle }) => {
@@ -11,7 +12,7 @@ const Header = ({ webTitle }) => {
       Chitter
                     </a>
              <a className="navbar-brand" href="/">Log In </a>
-             <a className="navbar-brand" href="/">Sign Up </a>
+             <Link className="navbar-brand" to="/signup"> Sign Up </Link>
                     </div>
 </nav>
         </>

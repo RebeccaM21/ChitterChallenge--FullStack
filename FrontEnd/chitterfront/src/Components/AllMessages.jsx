@@ -6,7 +6,7 @@ const AllMessages = ({ messageProp }) => {
     
     return (
         <>
-        {messages}
+            {messages}
         </>
          )
 }
