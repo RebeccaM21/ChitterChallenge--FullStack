@@ -7,7 +7,8 @@ const HomePage = ({messageProp}) => {
     
     return (
         <>
-            <Header/>
+            <Header />
+            <h1> Welcome to Chitter! </h1>
             <AllMessages messageProp={messageProp}/>
             <Footer/>
         </>

@@ -9,10 +9,9 @@ const Header = ({ webTitle }) => {
             <div className="container-fluid">
     <a className="navbar-brand" href="/">
       <img src={logo} alt="" width="30" height="24" className="d-inline-block align-text-top"/>
-      Chitter
-                    </a>
-             <Link className="navbar-brand" to="/login">Log In </Link>
-             <Link className="navbar-brand" to="/signup"> Sign Up </Link>
+      Chitter </a>
+             <Link className="navbar-brand text-right" to="/login">Log In </Link>
+             <Link className="navbar-brand text-right" to="/signup"> Sign Up </Link>
                     </div>
 </nav>
         </>

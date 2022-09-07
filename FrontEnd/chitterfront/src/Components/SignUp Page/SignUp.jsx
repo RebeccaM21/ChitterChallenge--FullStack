@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react'; 
-import Footer from '../Footer';
-import Header from '../Header';
+import Footer from '../HomePage/Footer';
+import Header from '../HomePage/Header';
 
 const Register = () => {
 

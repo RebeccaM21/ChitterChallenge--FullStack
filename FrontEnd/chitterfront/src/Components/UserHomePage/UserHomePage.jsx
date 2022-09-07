@@ -1,13 +1,13 @@
-import AddEntry from "../AddEntry";
-import AllMessages from "../AllMessages";
-import Footer from "../Footer";
-import Header from "../Header";
+import AddEntry from "./AddEntry";
+import AllMessages from "../HomePage/AllMessages";
+import Footer from "../HomePage/Footer";
+import LogOut from "./LogOut";
 
 const UserHomePage = ({ messageProp, userProp }) => {
     
     return (
         <>
-            <Header/>
+            <LogOut/>
             <AddEntry userProp={userProp}/>
             <AllMessages messageProp={messageProp}/>
             <Footer/>

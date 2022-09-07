@@ -19,7 +19,7 @@ router.route(`/`)
 
         User.findOne({ email }, (err, user) => { 
             if (email) {
-                res.send({ message: `Login success` });
+                res.send({ message: `Login success`, user });
             }
             else { 
                 res.send({ message: `Details not found` }); 

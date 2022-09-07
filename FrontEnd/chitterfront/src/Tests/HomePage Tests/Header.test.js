@@ -13,4 +13,7 @@ describe('Header Tests', () => {
      })
 })
  
-// Need later tests to ensure the links work 
+// Test 1 - The logo links to the home page route 
+// Test 2 - The log in links to the log in route 
+// Test 3 - The sign up links to sign up route 
+// Test 4 - the log out links to the home page route 

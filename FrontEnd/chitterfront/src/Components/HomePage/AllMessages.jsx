@@ -1,4 +1,4 @@
-import SingleEntry from './SingleEntry';
+import SingleEntry from '../UserHomePage/SingleEntry';
 
 const AllMessages = ({ messageProp }) => { 
 
