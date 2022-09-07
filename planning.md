@@ -18,13 +18,13 @@ I want to see the time at which it was made
 
 VIEW - GET REQ (DATE & TIME) - DATABASE (DATE & TIME)
 
-As a trainee
+DONE = As a trainee
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
 LOGIN - POST REQ - DATABASE
 
-As a trainee
+DONE = As a trainee
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 

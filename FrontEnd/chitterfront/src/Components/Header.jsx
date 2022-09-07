@@ -11,7 +11,7 @@ const Header = ({ webTitle }) => {
       <img src={logo} alt="" width="30" height="24" className="d-inline-block align-text-top"/>
       Chitter
                     </a>
-             <a className="navbar-brand" href="/">Log In </a>
+             <Link className="navbar-brand" to="/login">Log In </Link>
              <Link className="navbar-brand" to="/signup"> Sign Up </Link>
                     </div>
 </nav>

@@ -5,9 +5,17 @@ import axios from 'axios';
 import './Styles/App.css';
 import SignUp from './Components/Login Page/SignUp';
 import HomePage from './Components/HomePage';
+import Login from './Components/Login Page/Login';
+import UserHomePage from './Components/Login Page/UserHomePage';
 
 
 function App() {
+  
+   const [user, setUser] = useState({
+        email: ``,
+        password: ``, 
+        username: `Hello`,
+   }); 
   
   const [messages, setMessages] = useState([]);
 
@@ -16,10 +24,10 @@ function App() {
   // const [putError, setPutError] = useState(``);
 
     const getMessages = async () => {
-        await axios.get(`http://localhost:4000/entries`)
+        await axios.get(`http://localhost:4000/`)
             .then(res => { 
                 console.log(res.data); 
-                setMessages(res.data)
+                setMessages(res.data.reverse())
             });
     }
   
@@ -46,8 +54,10 @@ function App() {
       <Router>
       <div className="App">
         <Routes>
-        <Route index element={<HomePage messageProp = {messages}/>} />
-        <Route path= "/signup" element = {<SignUp/>} />
+          <Route index element={<HomePage messageProp={messages} />} />
+          <Route path="/login" element={<Login setUserProp={setUser} />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/user" element={<UserHomePage userProp={user} messageProp={messages} />} />
         </Routes>
       </div>
       </Router>

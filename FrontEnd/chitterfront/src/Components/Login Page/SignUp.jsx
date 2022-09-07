@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
 
-const Register = ({ }) => {
+const Register = () => {
 
     const [user, setUser] = useState({
         email: ``,

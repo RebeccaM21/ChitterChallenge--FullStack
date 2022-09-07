@@ -8,7 +8,8 @@ import mongoose from 'mongoose';
 
 import { entries } from './src/routes/entries.js';
 import { signup } from './src/routes/signup.js';
-
+import { login } from './src/routes/login.js'; 
+import { addEntry } from './src/routes/addEntry.js'; 
 
 dotenv.config({
     path: `.env.${process.env.NODE_ENV}`
@@ -18,8 +19,11 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(`/entries`, entries)
-app.use(`/signup`, signup)
+app.use(`/`, entries);
+app.use(`/home`, addEntry);
+app.use(`/signup`, signup);
+app.use(`/login`, login);
+
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 

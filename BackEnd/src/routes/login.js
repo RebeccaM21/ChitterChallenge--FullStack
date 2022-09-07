@@ -5,9 +5,27 @@ import User from '../models/user.model.js';
 
 
 router.route(`/`)
+    
     .get((req, res) => { 
-        
-        
+        User.find({}, (error, users) => {
+            console.log(users);
+        error ? res.status(404).json({ error: 'User not found' }) : res.json(users);
+    })
+ 
+    })
+    
+    .post((req, res) => { 
+        const { email } = req.body; 
+
+        User.findOne({ email }, (err, user) => { 
+            if (email) {
+                res.send({ message: `Login success` });
+            }
+            else { 
+                res.send({ message: `Details not found` }); 
+            }
+        })
+
         // res.render('index'); 
 
 })
@@ -18,4 +36,4 @@ router.route(`/`)
 
       
 
-export { router as signup };  
+export { router as login };  

@@ -2,12 +2,9 @@ import mongoose from "mongoose";
 
 const entrySchema = new mongoose.Schema(
     {
-        name: {
-            first: { type: String, required: true },
-            last: { type: String, required: true },
-        },
-
-        message: { type: String, required: true }, 
+        username: { type: String },
+        message: { type: String }, 
+        time: { type: String},
     }, 
     { collection: "Chitters"}
 ); 
