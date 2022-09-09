@@ -1,1 +1,0 @@
-// Test 1 - receives the correct props from App and renders the right components 

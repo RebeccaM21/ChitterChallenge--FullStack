@@ -8,7 +8,7 @@ const HomePage = ({messageProp}) => {
     return (
         <>
             <Header />
-            <h1> Welcome to Chitter! </h1>
+             <h1 class="display-4 font-weight-bold">Welcome to Chitter!</h1>
             <AllMessages messageProp={messageProp}/>
             <Footer/>
         </>

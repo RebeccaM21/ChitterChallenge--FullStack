@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import logo from '../speechbubble.png'; 
 
-const Header = ({ webTitle }) => {
+const Header = () => {
 
     return (
         <>

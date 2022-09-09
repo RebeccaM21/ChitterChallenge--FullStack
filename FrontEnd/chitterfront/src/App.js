@@ -9,13 +9,9 @@ import Login from './Components/Login Page/Login';
 import UserHomePage from './Components/UserHomePage/UserHomePage';
 
 
-function App() {
+const App = () =>  {
   
-   const [user, setUser] = useState({
-        email: ``,
-        password: ``, 
-        username: ``,
-   }); 
+  const [user, setUser] = useState({}); 
   
   const [messages, setMessages] = useState([]);
 
@@ -31,16 +27,16 @@ function App() {
         getMessages()
     }, [])
   
-  console.log(messages); 
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
       <Router>
       <div className="App">
         <Routes>
           <Route index element={<HomePage messageProp={messages} />} />
-          <Route path="/login" element={<Login setUserProp={setUser} />} />
+          <Route path="/login" element={<Login setUserProp={setUser} setLogInProp={setIsLoggedIn} />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/user" element={<UserHomePage userProp={user} messageProp={messages}/> } />
+          <Route path="/user" element={ isLoggedIn === true ? <UserHomePage userProp={user} messageProp={messages} setLogInProp={setIsLoggedIn} /> : <Login setUserProp={setUser} setLogInProp={setIsLoggedIn} /> } />
         </Routes>
       </div>
       </Router>

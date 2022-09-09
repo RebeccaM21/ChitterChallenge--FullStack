@@ -15,20 +15,20 @@ router.route(`/`)
 
         // Stop the user registering if their email or username is already in the database 
 
-        User.find({email, username}, (err, user) => { 
+        User.findOne({email, username}, (err, user) => { 
             if (user) { 
             res.send({message: `User already exists.`})
             } else { 
             
         const registration = new User(req.body);
-                registration.save(err => {
+                registration.save(err => { 
                     if (err) {
-                        res.send(err);
+                        res.send(err); 
                     }
-                    else {
-                        res.send({ message: `Registration successful` });
+                    else { 
+                        res.send({ message: `Registration successful` }); 
                     }
-                }); 
+            })
                 
 
 

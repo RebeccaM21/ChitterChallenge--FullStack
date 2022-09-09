@@ -15,25 +15,18 @@ router.route(`/`)
     })
     
     .post((req, res) => { 
-        const { email } = req.body; 
+        const { email, password } = req.body; 
 
-        User.findOne({ email }, (err, user) => { 
-            if (email) {
+        User.findOne({ email}, (err, user) => { 
+            if (user && password === user.password) {
                 res.send({ message: `Login success`, user });
-            }
+            } 
             else { 
                 res.send({ message: `Details not found` }); 
             }
         })
 
-        // res.render('index'); 
 
 })
-
-// check if the details are in the database and that they match up 
-// If in the database navigate to the specific page with the posts 
-// Make a view so that it navigates to that specific route 
-
-      
 
 export { router as login };  

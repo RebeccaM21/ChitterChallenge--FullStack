@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Footer from '../HomePage/Footer';
 import Header from '../HomePage/Header';
 
-const Register = () => {
+const SignUp = () => {
 
     const [user, setUser] = useState({
         email: ``,
@@ -35,30 +35,59 @@ const Register = () => {
 
     return (
         <>
-            <Header/>
-    <form className = "m-5" onSubmit={register}>
-  <div class= "form-group m-5">
-    <label for="Email Input">Email address</label>
-                <input type="email" class="form-control" id="Email Input" aria-describedby="emailHelp" name="email" value={user.email} onChange={handleChange} placeholder="Enter email"/>
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <Header />
+         <section className="vh-100">
+          <div className="container-fluid">
+              <h1 className="display-4 font-weight-bold">Sign Up to Chitter!</h1>  
+            <div className="row d-flex justify-content-center align-items-center h-100">  
+      <div className="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          className="img-fluid" alt="Sample"/>
+      </div>
+      <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form onSubmit={register}>
+
+          <div className="form-outline mb-4">
+            <input type="email" id="form3Example3" className="form-control form-control-lg"
+              placeholder="Enter Email Address" name="email" value={user.email} onChange={handleChange} />
+            <label className="form-label" for="form3Example3">Email address</label>
+          </div>
+                  
+          <div className="form-outline mb-3">
+            <input type="password" id="form3Example4" className="form-control form-control-lg"
+              placeholder="Enter Password" name="password" value={user.password} onChange={handleChange} />
+            <label className="form-label" for="form3Example4">Password</label>
+        </div>
+                                
+        <div className="form-outline mb-4">
+            <input type="username" id="form3Example3" className="form-control form-control-lg"
+              placeholder="Enter Name" name="name" value={user.name} onChange={handleChange}/>
+            <label className="form-label" for="form3Example3">Name</label>
+        </div>
+                                
+        <div className="form-outline mb-4">
+            <input type="username" id="form3Example3" className="form-control form-control-lg"
+              placeholder="Enter Username" name="username" value={user.username} onChange={handleChange}/>
+            <label className="form-label" for="form3Example3">Username</label>
+          </div>
+
+          <div className="d-flex justify-content-between align-items-center">
+          </div>
+
+          <div className="text-center text-lg-start mt-4 pt-2">
+                    <button type="submit" className="btn btn-primary btn-lg"
+                     style={{ "paddingLeft": "2.5rem", "paddingRight": "2.5rem" }}>Sign Up</button>
+                <p className="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="/login"
+                className="link-danger">Log In</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="form-group m-5">
-    <label for="Password Input">Password</label>
-                <input type="password" class="form-control" id="Password Input" name="password" value={user.password} onChange={handleChange} placeholder="Password"/>
-            </div>
-             <div class="form-group m-5">
-    <label for="Name Input">Name</label>
-                <input type="text" class="form-control" id="Name Input" name="name" value={user.name} onChange= {handleChange} placeholder="Name"/>
-            </div>
-             <div class="form-group m-5">
-    <label for="Username Input">Username</label>
-                <input type="text" class="form-control" id="Username Input" name="username" value={user.username} onChange= {handleChange} placeholder="Username"/>
-  </div>
-  <button type="submit" class="btn btn-primary">Register</button>
-            </form>
-            <Footer/>
+        </section>
+        <Footer />
             </>
     )
 }
 
-export default Register; 
+export default SignUp; 

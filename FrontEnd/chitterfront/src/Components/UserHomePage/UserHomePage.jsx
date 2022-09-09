@@ -3,11 +3,11 @@ import AllMessages from "../HomePage/AllMessages";
 import Footer from "../HomePage/Footer";
 import LogOut from "./LogOut";
 
-const UserHomePage = ({ messageProp, userProp }) => {
+const UserHomePage = ({ messageProp, userProp, setLogInProp }) => {
     
     return (
         <>
-            <LogOut/>
+            <LogOut setLogInProp={setLogInProp} />
             <AddEntry userProp={userProp}/>
             <AllMessages messageProp={messageProp}/>
             <Footer/>
